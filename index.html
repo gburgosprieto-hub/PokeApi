@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pokédex Sensor Cluster</title>
+    <link href="./node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="./node_modules/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet" />
+    <link href="./styles.css" rel="stylesheet" />
+</head>
+<body>
+  <header class="topbar d-flex align-items-center gap-3 px-3 py-2">
+    <div class="brand-mark d-grid"><span class="brand-orb"></span><strong>POKÉDEX</strong><small>MODEL HANDPROOF</small></div>
+    <nav class="d-none d-lg-flex gap-3 flex-grow-1" aria-label="Navegación principal"><a href="#pokedex">KANTO DEX</a><a href="#types">TYPE MATCHUPS</a><a href="#archive">CRIES ARCHIVE</a><a href="#status">DIAGNOSTICS</a></nav>
+    <div class="header-status d-flex align-items-center gap-2"><span>◈ ID / NAME #001-151</span><b>▮ VDX READY</b><i>◉</i></div>
+  </header>
+
+  <main id="pokedex" class="shell container-fluid">
+    <section class="search-row d-flex flex-wrap align-items-center gap-2 mb-3">
+      <form id="form1" class="search-box input-group flex-grow-1">
+        <button class="btn" aria-label="Buscar Pokémon" type="submit"><i class="bi bi-search"></i></button>
+        <input class="form-control" id="pokemon-search" name="pokedex-number" placeholder="BUSCAR POKÉMON (N.º O NOMBRE)..." autocomplete="off">
+      </form>
+      <button id="reset-search" class="reset-button btn btn-sm" type="button">RESET</button>
+      <div class="filter-label ms-lg-auto">FILTRO:</div>
+      <div id="type-filters" class="type-filters d-flex flex-wrap gap-1" aria-label="Filtrar por tipo"></div>
+    </section>
+
+    <section class="console">
+      <div class="console-top"><span class="sensor-lens">◒</span><div class="signal-lights"><i></i><i></i><i></i></div><span class="console-code">KANTO OS · HANDPROOF<br>UNIT // DUAL-BUS ARCH</span></div>
+      <div class="console-grid row g-3">
+        <article class="display-panel col-12 col-md-6">
+          <div class="screen-frame">
+            <div class="screen-toolbar"><span>● ●</span><span>SCAN-CAM MATRIX</span></div>
+            <div class="scan-screen">
+              <div class="screen-meta"><span>ID: <b id="screen-id">#025 · PIKACHU</b></span><span>MODE: OPTIC-CAPTURE <b>◉</b></span></div>
+              <img id="pokemon-image" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/25.png" alt="Pikachu">
+              <div class="scan-footer"><span>⌁ CRY SYNTH</span><span></span></div>
+            </div>
+           
+          </div>
+          <div class="pager row g-2"><button class="col btn" id="previous-pokemon" type="button">← #024 ARBOK</button><button class="col btn" id="next-pokemon" type="button">#026 RAICHU →</button></div>
+          <div class="catalog-tools"><span>MATRIZ DE ACCESO DIRECTO NUMÉRICO</span><div><button type="button">C</button><button type="button">E</button></div></div>
+          <div id="catalog" class="catalog w-100"><div class="catalog-heading d-flex justify-content-between"><span>CATÁLOGO REGIONAL (#001 - #151)</span><b>151 ESPECIES</b></div><div id="catalog-list" class="catalog-list row g-1 w-100"></div></div>
+        </article>
+
+        <aside class="data-panel col-12 col-md-6">
+          <div class="data-card">
+            <div class="data-heading"><h1><span id="pokemon-id">#025</span> <span id="pokemon-name">PIKACHU</span></h1><strong id="pokemon-type">ELEC</strong></div>
+            <div class="identity"><span>ESPECIE<br><b id="pokemon-species">Pokémon Ratón</b></span><span>ALTURA<br><b id="pokemon-height">0.4 m</b></span><span>PESO<br><b id="pokemon-weight">6.0 kg</b></span></div>
+            <div class="description"><b>▣ REGISTRO OFICIAL KANTO:</b><p id="pokemon-description">"Cuando varios de estos POKÉMON se juntan, su electricidad puede acumularse y causar tormentas eléctricas con relámpagos."</p></div>
+            <div id="stats" class="stats"></div>
+            <section class="pokemon-details" aria-labelledby="abilities-heading">
+              <h2 id="abilities-heading">HABILIDADES</h2>
+              <ul id="pokemon-abilities" class="detail-list"></ul>
+            </section>
+            <section class="pokemon-details" aria-labelledby="moves-heading">
+              <h2 id="moves-heading">MOVIMIENTOS / ATAQUES</h2>
+              <ul id="pokemon-moves" class="detail-list moves-list"></ul>
+            </section>
+          </div>
+        </aside>
+      </div>
+    </section>
+  </main>
+  <footer id="status"><span>◆ DEVICE: ACTIVE</span><b>REGISTERED: 151 / 151 KANTO INDEX</b><span>SYS VER 1.0.4-JP</span></footer>
+  <script type="module" src="./scripts.js"></script>
+</body>
+</html>
